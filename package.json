@@ -1,0 +1,82 @@
+{
+  "name": "loopback-cultureflex",
+  "version": "0.1.0",
+  "main": "server/server.js",
+  "engines": {
+    "node": ">=8"
+  },
+  "scripts": {
+    "lint": "eslint .",
+    "start": "node .",
+    "posttest": "npm run lint && nsp check",
+    "postinstall": "sh ./scripts/postinstall.sh",
+    "clean:assets": "rm -rf client/src/",
+    "copy:assets": "cp -r client-src/src client",
+    "build-dev:css": "node-sass -r client-src/scss/style.scss -o client/src/css",
+    "build-prod:css": "node-sass -r --output-style compressed client-src/scss/style.scss -o client/src/css",
+    "watch:css": "npm run build-dev:css && npm run build-dev:css -- -w",
+    "update": "node bin/autoupdate-all.js"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "node ./bin/hooks/dependency-versions.js"
+    }
+  },
+  "dependencies": {
+    "aws-sdk": "2.544.0",
+    "bull": "3.10.0",
+    "compression": "1.7.4",
+    "connect-redis": "4.0.3",
+    "consolidate": "0.15.1",
+    "cookie-parser": "1.4.4",
+    "cors": "2.8.5",
+    "debug": "4.1.1",
+    "dotenv": "8.0.0",
+    "express-basic-auth": "1.2.0",
+    "express-session": "1.16.2",
+    "fcm-node": "1.5.2",
+    "file-type": "12.3.0",
+    "gm": "1.23.1",
+    "helmet": "3.21.1",
+    "image-size": "0.8.3",
+    "ioredis": "4.10.0",
+    "loopback": "3.26.0",
+    "loopback-boot": "2.28.0",
+    "loopback-cascade-delete-mixin": "2.0.0",
+    "loopback-component-explorer": "6.4.0",
+    "loopback-connector-postgresql": "3.6.1",
+    "loopback-ds-timestamp-mixin": "3.4.1",
+    "loopback-mixin-cache": "0.1.0",
+    "multer": "1.4.1",
+    "node-schedule": "1.3.2",
+    "nodemailer": "6.2.1",
+    "nunjucks": "3.2.0",
+    "passport": "0.4.0",
+    "passport-facebook": "3.0.0",
+    "passport-google-oauth": "2.0.0",
+    "passport-twitter": "1.0.4",
+    "random-string": "0.2.0",
+    "rate-limiter-flexible": "1.0.2",
+    "serve-favicon": "2.5.0",
+    "sharp": "0.21.0",
+    "socket.io": "2.2.0",
+    "socket.io-redis": "5.2.0",
+    "socketio-auth": "0.1.1",
+    "strong-error-handler": "3.2.0",
+    "uuid": "3.3.2"
+  },
+  "devDependencies": {
+    "chance": "1.0.18",
+    "cp": "0.2.0",
+    "eslint": "6.0.1",
+    "eslint-plugin-mocha": "5.3.0",
+    "husky": "2.4.1",
+    "node-sass": "4.12.0"
+  },
+  "repository": {
+    "type": "",
+    "url": "git@github.com:technologiestiftung/culturematch-server.git"
+  },
+  "license": "UNLICENSED",
+  "description": "0.1.0"
+}

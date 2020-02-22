@@ -1,0 +1,74 @@
+{
+  "initial:before": {
+    "./middleware/rate-limiter": {
+      "params": {
+        "endpoints": [
+          "/api/admins/login",
+          "/api/users/login"
+        ]
+      }
+    },
+    "loopback#favicon": {}
+  },
+  "initial": {
+    "compression": {},
+    "cors": {
+      "params": {
+        "origin": true,
+        "credentials": true,
+        "maxAge": 86400,
+        "exposedHeaders": [
+          "X-Total-Count",
+          "X-Access-Token"
+        ]
+      }
+    },
+    "helmet#xssFilter": {},
+    "helmet#frameguard": {
+      "params": [
+        "deny"
+      ]
+    },
+    "helmet#hsts": {
+      "params": {
+        "maxAge": 31536000,
+        "includeSubdomains": true
+      }
+    },
+    "helmet#hidePoweredBy": {},
+    "helmet#ieNoOpen": {},
+    "helmet#noSniff": {},
+    "helmet#noCache": {
+      "enabled": false
+    }
+  },
+  "session": {},
+  "auth": {},
+  "parse": {
+    "body-parser#json": {},
+    "body-parser#urlencoded": {
+      "params": {
+        "extended": true
+      }
+    }
+  },
+  "routes": {
+    "loopback#rest": {
+      "paths": [
+        "${restApiRoot}"
+      ]
+    }
+  },
+  "files": {
+    "loopback#static": {
+      "params": "$!../client"
+    }
+  },
+  "final": {
+    "./middleware/angular-client": {},
+    "loopback#urlNotFound": {}
+  },
+  "final:after": {
+    "strong-error-handler": {}
+  }
+}

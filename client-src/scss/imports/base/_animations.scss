@@ -1,0 +1,11 @@
+.animate-if-visible {
+  pointer-events: none;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: transform .3s, opacity .3s;
+  &.is-visible {
+    pointer-events: initial;
+    opacity: 1;
+    transform: none;
+  }
+}

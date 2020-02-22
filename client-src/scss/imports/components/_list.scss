@@ -1,0 +1,24 @@
+.simple-list {
+  margin-top: $space;
+  margin-bottom: $space;
+  .item {
+    padding-left: 0;
+    &:first-child {
+      border-top: none;
+    }
+    &-inner {
+      padding-right: 0;
+    }
+  }
+  ion-label {
+    margin-left: $space;
+    margin-right: $space + $space;
+  }
+  app-svg-icon {
+    position: absolute;
+    right: $space - 5px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 14px;
+  }
+}

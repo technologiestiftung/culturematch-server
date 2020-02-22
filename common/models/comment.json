@@ -1,0 +1,46 @@
+{
+  "name": "Comment",
+  "plural": "comments",
+  "base": "BaseModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "mixins": {
+    "Reportable": true,
+    "CascadeDelete": {
+      "deepDelete": true
+    }
+  },
+  "properties": {
+    "userId": {
+      "type": "string",
+      "required": true
+    },
+    "text": {
+      "type": "string",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {
+    "commentable": {
+      "type": "belongsTo",
+      "polymorphic": true
+    },
+    "user": {
+      "type": "belongsTo",
+      "model": "AppUser",
+      "foreignKey": "userId"
+    }
+  },
+  "acls": [
+    {
+      "accessType": "WRITE",
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW"
+    }
+  ],
+  "methods": {}
+}

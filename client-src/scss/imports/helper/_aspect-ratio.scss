@@ -1,0 +1,11 @@
+@mixin aspect-ratio($width, $height) {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  &::before {
+    content: '';
+    display: block;
+    width: 100%;
+    padding-top: ($height / $width) * 100%;
+  }
+}

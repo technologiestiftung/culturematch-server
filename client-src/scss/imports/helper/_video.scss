@@ -1,0 +1,40 @@
+@mixin video($ratioX, $ratioY, $background: #000000, $cover: false) {
+  position: relative;
+  overflow: hidden;
+  background: $background;
+  &::before {
+    content: '';
+    display: block;
+    width: 100%;
+    padding-top: ($ratioY / $ratioX) * 100%;
+  }
+  .video-preview, .video-embed {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+  .video-preview {
+    z-index: 1;
+    background: #000;
+    img {
+      object-fit: contain;
+      width: 100%;
+      height: 100%;
+    }
+
+  }
+  .video-embed {
+    @if $cover {
+      object-fit: cover;
+    }
+    .is-fullscreen {
+      object-fit: initial;
+    }
+
+    transform: translateZ(0);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+  }
+}

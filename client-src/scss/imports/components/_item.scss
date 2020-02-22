@@ -1,0 +1,29 @@
+.item {
+  &__image {
+    @include cover(375, 200, #eee);
+    img {
+      @extend %stretched-container;
+      @extend %object-fit;
+    }
+  }
+  &-content {
+    background: $c-background-secondary;
+    padding: $space $space $space-xl;
+    overflow: hidden;
+    flex: 1;
+    @media (min-width: 768px) {
+      padding: $space-m $space-m $space-xl * 2;
+    }
+    h4 {
+      margin: 0;
+    }
+    p {
+      line-height: 1.75;
+      margin: 0;
+    }
+
+    .rte > p {
+      margin: $space 0;
+    }
+  }
+}

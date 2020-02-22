@@ -1,0 +1,42 @@
+@font-face {
+  font-family: "Ionicons";
+  src: url('#{$font-path}/ionicons.woff2') format('woff2'),
+  url('#{$font-path}/ionicons.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Roboto';
+  src: url('#{$font-path}/Roboto-Regular.woff2') format('woff2'),
+  url('#{$font-path}/Roboto-Regular.woff') format('woff');
+  font-style: normal;
+  font-weight: 400;
+  text-rendering: optimizeLegibility;
+}
+
+@font-face {
+  font-family: 'Roboto';
+  src: url('#{$font-path}/Roboto-Bold.woff2') format('woff2'),
+  url('#{$font-path}/Roboto-Bold.woff') format('woff');
+  font-style: normal;
+  font-weight: 700;
+  text-rendering: optimizeLegibility;
+}
+
+// $font map in variables.scss
+@each $h in map_keys($font) {
+  #{$h}, .#{$h}, %#{$h} {
+    font-family: getFontValue(#{$h}, family);
+    font-size: getFontValue(#{$h}, size);
+    font-weight: getFontValue(#{$h}, weight);
+    font-style: getFontValue(#{$h}, style);
+    line-height: getFontValue(#{$h}, line-height);
+    text-transform: getFontValue(#{$h}, text-transform);
+  }
+}
+
+.hyperlink, %hyperlink {
+  color: color($colors, primary);
+  text-decoration: underline;
+}

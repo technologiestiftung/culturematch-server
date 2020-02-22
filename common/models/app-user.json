@@ -1,0 +1,142 @@
+{
+  "name": "AppUser",
+  "plural": "users",
+  "base": "User",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "customOptions": {
+    "needsEmailVerification": true
+  },
+  "mixins": {
+    "TimeStamp": true,
+    "ProtectUserProperties": {
+      "exceptOwner": [
+        "email",
+        "facebook",
+        "emailVerified",
+        "realm",
+        "userType"
+      ],
+      "exceptAdmin": true
+    },
+    "CascadeDelete": {
+      "relations": [
+        {
+          "name": "comments",
+          "deepDelete": true
+        },
+        {
+          "name": "files",
+          "deepDelete": true
+        }
+      ]
+    }
+  },
+  "properties": {
+    "id": {
+      "type": "string",
+      "id": true,
+      "required": false,
+      "defaultFn": "uuidv4",
+      "postgresql": {
+        "dataType": "CHAR",
+        "dataLength": 36,
+        "nullable": "N"
+      }
+    },
+    "avatar": {
+      "type": "string"
+    },
+    "firstName": {
+      "type": "string"
+    },
+    "lastName": {
+      "type": "string"
+    },
+    "displayName": {
+      "type": "string"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "comments": {
+      "type": "hasMany",
+      "model": "Comment",
+      "polymorphic": "commentable"
+    },
+    "files": {
+      "type": "hasMany",
+      "model": "CustomFile",
+      "foreignKey": "userId"
+    },
+    "likes": {
+      "type": "hasMany",
+      "model": "Like",
+      "foreignKey": "userId"
+    },
+    "offers": {
+      "type": "hasMany",
+      "model": "Ad",
+      "foreignKey": "userId"
+    }
+  },
+  "acls": [
+    {
+      "accessType": "READ",
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW"
+    },
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "ALLOW",
+      "property": "facebookLogin"
+    },
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "admin",
+      "permission": "ALLOW"
+    },
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "DENY",
+      "property": "verifyAccessToken"
+    },
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "$owner",
+      "permission": "ALLOW",
+      "property": "verifyAccessToken"
+    },
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "$owner",
+      "permission": "ALLOW",
+      "property": "setPushToken"
+    },
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW",
+      "property": "deleteAccount"
+    },
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "ALLOW",
+      "property": "getCurrentUser"
+    }
+  ],
+  "methods": {}
+}

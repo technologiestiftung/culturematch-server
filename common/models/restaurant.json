@@ -1,0 +1,70 @@
+{
+  "name": "Restaurant",
+  "plural": "restaurants",
+  "base": "BaseModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "mixins": {
+    "Reportable": true,
+    "CascadeDelete": {
+      "relations": [
+        {
+          "name": "comments",
+          "foreignKey": "commentableId"
+        }
+      ]
+    }
+  },
+  "properties": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "content": {
+      "type": "any"
+    },
+    "canonicalAddress": {
+      "type": "string"
+    },
+    "location": {
+      "type": "geopoint"
+    },
+    "image": {
+      "type": "string"
+    },
+    "restaurantCategoryId": {
+      "type": "string"
+    },
+    "numberOfSeats": {
+      "type": "number"
+    },
+    "priceRange": {
+      "type": "string"
+    },
+    "hasOutdoorSeating": {
+      "type": "boolean"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "comments": {
+      "type": "hasMany",
+      "model": "Comment",
+      "polymorphic": {
+        "selector": "commentable"
+      }
+    }
+  },
+  "acls": [
+    {
+      "accessType": "WRITE",
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW",
+      "property": "__create__comments"
+    }
+  ],
+  "methods": {}
+}

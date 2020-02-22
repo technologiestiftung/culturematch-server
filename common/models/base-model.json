@@ -1,0 +1,55 @@
+{
+  "name": "BaseModel",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "mixins": {
+    "TimeStamp": true,
+    "Logging": {
+      "only": [
+        "BaseModel"
+      ]
+    }
+  },
+  "scope": {
+    "order": "createdAt DESC"
+  },
+  "properties": {
+    "id": {
+      "type": "string",
+      "id": true,
+      "required": false,
+      "defaultFn": "uuidv4",
+      "postgresql": {
+        "dataType": "CHAR",
+        "dataLength": 36,
+        "nullable": "N"
+      }
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "DENY"
+    },
+    {
+      "accessType": "READ",
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "ALLOW"
+    },
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "admin",
+      "permission": "ALLOW"
+    }
+  ],
+  "methods": {}
+}

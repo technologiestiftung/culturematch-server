@@ -1,0 +1,37 @@
+{
+  "name": "Message",
+  "base": "BaseModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "conversationId": {
+      "type": "string",
+      "required": true
+    },
+    "senderId": {
+      "type": "string",
+      "required": true
+    },
+    "content": {
+      "type": "string",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {
+    "conversation": {
+      "type": "belongsTo",
+      "model": "Conversation",
+      "foreignKey": "conversationId"
+    },
+    "sender": {
+      "type": "belongsTo",
+      "model": "AppUser",
+      "foreignKey": "senderId"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

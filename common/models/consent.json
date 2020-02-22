@@ -1,0 +1,42 @@
+{
+  "name": "Consent",
+  "plural": "consents",
+  "base": "BaseModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "userId": {
+      "type": "string",
+      "required": true
+    },
+    "ip": {
+      "type": "string",
+      "required": true
+    },
+    "agreementType": {
+      "type": "string",
+      "required": true
+    },
+    "agreementId": {
+      "type": "string",
+      "required": true
+    },
+    "agreement": {
+      "type": "object",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [
+    {
+      "accessType": "WRITE",
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW"
+    }
+  ],
+  "methods": {}
+}

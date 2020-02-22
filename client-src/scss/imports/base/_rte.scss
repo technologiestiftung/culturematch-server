@@ -1,0 +1,67 @@
+.rte {
+  margin: 0;
+  &, p {
+    @extend %p;
+  }
+  a {
+    @extend %hyperlink;
+    font-size: 15px;
+  }
+  ul {
+    @extend %reset-list;
+    margin: $space 0;
+    &:not(.default-list) {
+      li {
+        position: relative;
+        padding-left: $space-m;
+        font-weight: bold;
+        line-height: 1.5;
+        &::before {
+          content: '';
+          @include size(10px);
+          position: absolute;
+          top: 0.3em;
+          left: 0;
+          border: 1px solid color($colors, primary);
+          border-radius: 50%;
+        }
+        &:not(:last-child) {
+          margin-bottom: $space-s;
+        }
+      }
+    }
+    &.default-list {
+      li {
+        display: flex;
+        :first-child {
+          width: 70px;
+        }
+      }
+    }
+  }
+
+  img {
+    display: block;
+    width: calc(100% + #{2 * $space});
+    height: auto;
+    max-width: none;
+    margin: $space-m 0 $space-m #{- $space};
+    color: $c-text-secondary;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    line-height: 1.33;
+  }
+
+  > :first-child {
+    margin-top: 0;
+  }
+  > :last-child {
+    margin-bottom: 0;
+  }
+}
+
+
+.content-block {
+  margin: $space-m 0;
+}

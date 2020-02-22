@@ -1,0 +1,116 @@
+                <table border="0" cellpadding="0" cellspacing="0" width="100%" class="divider " style="border-collapse: collapse;table-layout: fixed;border-spacing: 0;mso-table-lspace: 0pt;mso-table-rspace: 0pt;vertical-align: top;min-width: 100%;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%">
+                  <tbody>
+                  <tr style="vertical-align: top">
+                    <td class="divider_inner" style="word-break: break-word;border-collapse: collapse !important;vertical-align: top;padding-right: 0px;padding-left: 0px;padding-top: 0px;padding-bottom: 0px;min-width: 100%;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%">
+                      <table class="divider_content" height="0px" align="center" border="0" cellpadding="0" cellspacing="0" width="100%" style="border-collapse: collapse;table-layout: fixed;border-spacing: 0;mso-table-lspace: 0pt;mso-table-rspace: 0pt;vertical-align: top;border-top: 1px solid #DDD;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%">
+                        <tbody>
+                        <tr style="vertical-align: top">
+                          <td style="word-break: break-word;border-collapse: collapse !important;vertical-align: top;font-size: 0px;line-height: 0px;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%">
+                            <span>&#160;</span>
+                          </td>
+                        </tr>
+                        </tbody>
+                      </table>
+                    </td>
+                  </tr>
+                  </tbody>
+                </table>
+                <div class="">
+                  <!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding-right: 8px; padding-left: 8px; padding-top: 20px; padding-bottom: 20px;"><![endif]-->
+                  <div style="color:#555555;line-height:120%;font-family:{{ config.font.family }}; padding-right: 8px; padding-left: 8px; padding-top: 20px; padding-bottom: 20px;">
+                    <div style="font-size:12px;line-height:14px;color:#555555;font-family:{{ config.font.family }};text-align:left;"><p style="margin: 0;font-size: {{ config.font.size }};line-height: {{ config.font.lineHeight }}"><span style="font-size: 12px; line-height: 14px;">
+                      Copyright © {{ config.date.year }} {{ config.footer.copyright }}</span></p></div>
+                  </div>
+                  <!--[if mso]></td></tr></table><![endif]-->
+                </div>
+
+                <div align="left" style="padding-right: 8px; padding-left: 8px; padding-bottom: 0px;" class="">
+                  <div style="display: table; max-width:245px;">
+                    <!--[if (mso)|(IE)]><table width="245" cellpadding="0" cellspacing="0" border="0"><tr><td style="border-collapse:collapse; padding-right: 0px; padding-left: 0px; padding-bottom: 0px;"  align="left"><table width="100%" cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse; mso-table-lspace: 0pt;mso-table-rspace: 0pt; width:245px;"><tr><![endif]-->
+
+                    {% if config.email %}
+                      <!--[if (mso)|(IE)]> <td width="32" style="width:32px; padding-right: 8px;" valign="top"><![endif]-->
+                      <table align="left" border="0" cellspacing="0" cellpadding="0" width="32" height="32" style="border-collapse: collapse;table-layout: fixed;border-spacing: 0;mso-table-lspace: 0pt;mso-table-rspace: 0pt;vertical-align: top;Margin-right: 8px">
+                        <tbody><tr style="vertical-align: top"><td align="left" valign="middle" style="word-break: break-word;border-collapse: collapse !important;vertical-align: top">
+                          <a href="mailto:{{ config.email }}" title="E-Mail" target="_blank">
+                            <img src="{{ config.baseUrl }}/src/img/mail@2x.png" alt="E-Mail" title="E-Mail" width="32" style="outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;clear: both;display: block !important;border: none;height: auto;float: none;max-width: 32px !important">
+                          </a>
+                          <div style="line-height:5px;font-size:1px">&#160;</div>
+                        </td></tr>
+                        </tbody>
+                      </table>
+                      <!--[if (mso)|(IE)]></td><![endif]-->
+                    {% endif %}
+
+                    {% if config.urls.facebook %}
+                      <!--[if (mso)|(IE)]> <td width="32" style="width:32px; padding-right: 8px;" valign="top"><![endif]-->
+                      <table align="left" border="0" cellspacing="0" cellpadding="0" width="32" height="32" style="border-collapse: collapse;table-layout: fixed;border-spacing: 0;mso-table-lspace: 0pt;mso-table-rspace: 0pt;vertical-align: top;Margin-right: 8px">
+                        <tbody><tr style="vertical-align: top"><td align="left" valign="middle" style="word-break: break-word;border-collapse: collapse !important;vertical-align: top">
+                          <a href="{{ config.urls.facebook }}" title="Facebook" target="_blank">
+                            <img src="{{ config.baseUrl }}/src/img/facebook@2x.png" alt="Facebook" title="Facebook" width="32" style="outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;clear: both;display: block !important;border: none;height: auto;float: none;max-width: 32px !important">
+                          </a>
+                          <div style="line-height:5px;font-size:1px">&#160;</div>
+                        </td></tr>
+                        </tbody>
+                      </table>
+                      <!--[if (mso)|(IE)]></td><![endif]-->
+                    {% endif %}
+
+                    {% if config.urls.instagram %}
+                      <!--[if (mso)|(IE)]> <td width="32" style="width:32px; padding-right: 8px;" valign="top"><![endif]-->
+                      <table align="left" border="0" cellspacing="0" cellpadding="0" width="32" height="32" style="border-collapse: collapse;table-layout: fixed;border-spacing: 0;mso-table-lspace: 0pt;mso-table-rspace: 0pt;vertical-align: top;Margin-right: 8px">
+                        <tbody><tr style="vertical-align: top"><td align="left" valign="middle" style="word-break: break-word;border-collapse: collapse !important;vertical-align: top">
+                          <a href="{{ config.urls.instagram }}" title="Instagram" target="_blank">
+                            <img src="{{ config.baseUrl }}/src/img/instagram@2x.png" alt="Instagram" title="Instagram" width="32" style="outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;clear: both;display: block !important;border: none;height: auto;float: none;max-width: 32px !important">
+                          </a>
+                          <div style="line-height:5px;font-size:1px">&#160;</div>
+                        </td></tr>
+                        </tbody>
+                      </table>
+                      <!--[if (mso)|(IE)]></td><![endif]-->
+                    {% endif %}
+
+                    {% if config.urls.youtube %}
+                      <!--[if (mso)|(IE)]> <td width="32" style="width:32px; padding-right: 8px;" valign="top"><![endif]-->
+                      <table align="left" border="0" cellspacing="0" cellpadding="0" width="32" height="32" style="border-collapse: collapse;table-layout: fixed;border-spacing: 0;mso-table-lspace: 0pt;mso-table-rspace: 0pt;vertical-align: top;Margin-right: 8px">
+                        <tbody><tr style="vertical-align: top"><td align="left" valign="middle" style="word-break: break-word;border-collapse: collapse !important;vertical-align: top">
+                          <a href="{{ config.urls.youtube }}" title="YouTube" target="_blank">
+                            <img src="{{ config.baseUrl }}/src/img/youtube@2x.png" alt="YouTube" title="YouTube" width="32" style="outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;clear: both;display: block !important;border: none;height: auto;float: none;max-width: 32px !important">
+                          </a>
+                          <div style="line-height:5px;font-size:1px">&#160;</div>
+                        </td></tr>
+                        </tbody>
+                      </table>
+                      <!--[if (mso)|(IE)]></td><![endif]-->
+                    {% endif %}
+
+                    {% if config.urls.pinterest %}
+                      <!--[if (mso)|(IE)]> <td width="32" style="width:32px; padding-right: 8px;" valign="top"><![endif]-->
+                      <table align="left" border="0" cellspacing="0" cellpadding="0" width="32" height="32" style="border-collapse: collapse;table-layout: fixed;border-spacing: 0;mso-table-lspace: 0pt;mso-table-rspace: 0pt;vertical-align: top;Margin-right: 8px">
+                        <tbody><tr style="vertical-align: top"><td align="left" valign="middle" style="word-break: break-word;border-collapse: collapse !important;vertical-align: top">
+                          <a href="{{ config.urls.pinterest }}" title="Pinterest" target="_blank">
+                            <img src="{{ config.baseUrl }}/src/img/pinterest@2x.png" alt="Pinterest" title="Pinterest" width="32" style="outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;clear: both;display: block !important;border: none;height: auto;float: none;max-width: 32px !important">
+                          </a>
+                          <div style="line-height:5px;font-size:1px">&#160;</div>
+                        </td></tr>
+                        </tbody>
+                      </table>
+                      <!--[if (mso)|(IE)]></td></tr></table></td></tr></table><![endif]-->
+                    {% endif %}
+                  </div>
+                </div>
+
+                <!--[if (!mso)&(!IE)]><!--></div><!--<![endif]-->
+              </div>
+            </div>
+            <!--[if (mso)|(IE)]></td></tr></table></td></tr></table><![endif]-->
+          </div>
+        </div>
+      </div>   <!--[if (mso)|(IE)]></td></tr></table><![endif]-->
+    </td>
+  </tr>
+  </tbody>
+</table>
+<!--[if (mso)|(IE)]></div><![endif]-->
+
+</body></html>

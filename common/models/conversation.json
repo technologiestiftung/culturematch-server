@@ -1,0 +1,86 @@
+{
+  "name": "Conversation",
+  "plural": "conversations",
+  "base": "BaseModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "adId": {
+      "type": "string",
+      "required": true
+    },
+    "ownerId": {
+      "type": "string",
+      "required": true
+    },
+    "prospectId": {
+      "type": "string",
+      "required": true
+    },
+    "lastMessageAt": {
+      "type": "date"
+    },
+    "lastMessageId": {
+      "type": "string"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "messages": {
+      "type": "hasMany",
+      "model": "Message",
+      "foreignKey": "conversationId"
+    },
+    "lastMessage": {
+      "type": "belongsTo",
+      "model": "Message",
+      "foreignKey": "lastMessageId"
+    },
+    "ad": {
+      "type": "belongsTo",
+      "model": "Ad",
+      "foreignKey": "adId"
+    },
+    "owner": {
+      "type": "belongsTo",
+      "model": "AppUser",
+      "foreignKey": "ownerId"
+    },
+    "prospect": {
+      "type": "belongsTo",
+      "model": "AppUser",
+      "foreignKey": "prospectId"
+    }
+  },
+  "acls": [
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW",
+      "property": "startNewConversation"
+    },
+    {
+      "accessType": "READ",
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "DENY"
+    },
+    {
+      "accessType": "READ",
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW"
+    },
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "$conversationParticipant",
+      "permission": "ALLOW",
+      "property": "__create__messages"
+    }
+  ],
+  "methods": {}
+}

@@ -1,0 +1,34 @@
+// valid values for $pos are 'tl, 'tr', 'bl', 'br'
+
+@mixin skew($pos, $color, $angle: 6.15) {
+  &::after {
+    content: '';
+    position: absolute;
+    left: -1px;
+    right: -1px;
+    z-index: 1;
+    background: $color;
+    padding-bottom: 11%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    outline: 1px solid transparent;
+    @if $pos == 'tl' or $pos == 'tr' {
+      top: 0;
+    } @else {
+      bottom: 0;
+    }
+    @if $pos == 'tl' {
+      transform-origin: top left;
+      transform: translateZ(0) skew(0, -#{$angle}deg);
+    } @else if $pos == 'tr' {
+      transform-origin: top right;
+      transform: translateZ(0) skew(0, #{$angle}deg);
+    } @else if $pos == 'bl' {
+      transform-origin: top left;
+      transform: translateZ(0) skew(0, #{$angle}deg);
+    } @else {
+      transform-origin: top right;
+      transform: translateZ(0) skew(0, -#{$angle}deg);
+    }
+  }
+}

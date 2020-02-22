@@ -1,0 +1,37 @@
+<script>
+  if (window.opener) {
+    window.opener.postMessage({ response: '{{ data }}' }, '*');
+    setTimeout(() => {
+      window.close();
+    }, 0);
+  }
+
+  window.location = "blueprint://auth/{{ data }}";
+</script>
+
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="viewport-fit=cover, width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <style>
+    body {
+      text-align: center;
+    }
+
+    a {
+      color: #fff;
+      background: #000;
+      border-radius: 3px;
+      text-decoration: none;
+      padding: 20px;
+      font-family: sans-serif;
+      margin-top: 20vh;
+      display: inline-block;
+    }
+  </style>
+</head>
+<body>
+  <a href="blueprint://auth/{{ data }}">Back to BLUEPRINT</a>
+</body>
+</html>

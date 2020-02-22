@@ -1,0 +1,28 @@
+.proto-input {
+  &[readonly] {
+  }
+  &[disabled], .is-disabled & {
+    pointer-events: none;
+    opacity: .5;
+  }
+
+  input:focus, .text-input {
+    outline: none;
+  }
+  &-caption {
+    margin: 0;
+    padding: $space-s $space 0;
+  }
+
+}
+
+// https://css-tricks.com/snippets/css/change-autocomplete-styles-webkit-browsers/
+// Change Autocomplete Styles in WebKit Browsers
+
+:-webkit-autofill,
+:-webkit-autofill:hover,
+:-webkit-autofill:focus {
+  -webkit-text-fill-color: #777;
+  -webkit-box-shadow: 0 0 0px 1000px $c-background-primary inset;
+  transition: background-color 5000s ease-in-out 0s;
+}

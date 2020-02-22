@@ -1,0 +1,25 @@
+{
+  "name": "RestaurantCategory",
+  "plural": "restaurant-categories",
+  "base": "BaseModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "title": {
+      "type": "string",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {
+    "restaurants": {
+      "type": "hasMany",
+      "model": "Restaurant",
+      "foreignKey": "restaurantCategoryId"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

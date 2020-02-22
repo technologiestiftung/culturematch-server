@@ -1,0 +1,423 @@
+{
+  "version": "0.1.11",
+  "baseHref": "/admin/",
+  "colorPrimary": "#c31b1d",
+  "models": [
+    {
+      "label": "Restaurant",
+      "modelName": "Restaurant",
+      "endpoint": "restaurants",
+      "include": "comments",
+      "listView": {
+        "fields": [
+          {
+            "label": "Bild",
+            "name": "image",
+            "type": "image"
+          },
+          {
+            "label": "Name",
+            "name": "title"
+          },
+          {
+            "label": "Adresse",
+            "name": "canonicalAddress"
+          },
+          {
+            "label": "Außensitzplätze",
+            "name": "hasOutdoorSeating"
+          },
+          {
+            "label": "Erstellt",
+            "name": "createdAt",
+            "type": "date",
+            "format": "DD.MM.YY hh:mm"
+          }
+        ]
+      },
+      "editView": {
+        "titleField": "title",
+        "fields": [
+          {
+            "label": "Name",
+            "name": "title",
+            "required": true
+          },
+          {
+            "label": "Restaurant-Kategorie",
+            "name": "restaurantCategoryId",
+            "type": "reference",
+            "referenceEndpoint": "restaurant-categories",
+            "referenceLabel": "title",
+            "referenceField": "id"
+          },
+          {
+            "label": "Bild",
+            "name": "image",
+            "type": "image"
+          },
+          {
+            "label": "Adresse",
+            "name": "canonicalAddress"
+          },
+          {
+            "label": "Beschreibung",
+            "name": "content",
+            "type": "content"
+          },
+          {
+            "label": "Auswahl",
+            "name": "priceRange",
+            "type": "select",
+            "required": true,
+            "options": [
+              {
+                "label": "niedrig",
+                "value": "low"
+              },
+              {
+                "label": "mittel",
+                "value": "mid"
+              },
+              {
+                "label": "hoch",
+                "value": "high"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "label": "Restaurant-Kategorien",
+      "modelName": "RestaurantCategory",
+      "endpoint": "restaurant-categories",
+      "listView": {
+        "fields": [
+          {
+            "label": "Name",
+            "name": "title"
+          },
+          {
+            "label": "Erstellt",
+            "name": "createdAt",
+            "type": "date"
+          },
+          {
+            "label": "Aktualisiert",
+            "name": "updatedAt",
+            "type": "date"
+          }
+        ]
+      },
+      "editView": {
+        "titleField": "title",
+        "fields": [
+          {
+            "label": "Name",
+            "name": "title",
+            "required": true
+          }
+        ]
+      }
+    },
+    {
+      "label": "Agreements",
+      "modelName": "Agreement",
+      "endpoint": "agreements",
+      "listView": {
+        "fields": [
+          {
+            "label": "Typ",
+            "name": "type"
+          },
+          {
+            "label": "Status",
+            "name": "status"
+          },
+          {
+            "label": "Gültigkeitsbeginn",
+            "name": "validityStartDate",
+            "type": "date",
+            "format": "DD.MM.YY hh:mm"
+          },
+          {
+            "label": "Erstellt",
+            "name": "createdAt",
+            "type": "date"
+          },
+          {
+            "label": "Aktualisiert",
+            "name": "updatedAt",
+            "type": "date"
+          }
+        ]
+      },
+      "editView": {
+        "titleField": "type",
+        "fields": [
+          {
+            "label": "Typ",
+            "name": "type",
+            "type": "select",
+            "required": true,
+            "options": [
+              { "value": "privacy", "label": "DSGVO" },
+              { "value": "terms", "label": "AGB" }
+            ]
+          },
+          {
+            "label": "Auszug",
+            "name": "excerpt",
+            "type": "wysiwyg"
+          },
+          {
+            "label": "Inhalt",
+            "name": "content",
+            "type": "wysiwyg"
+          },
+          {
+            "label": "Änderungen",
+            "name": "changes",
+            "type": "wysiwyg"
+          },
+          {
+            "label": "Status",
+            "name": "status",
+            "type": "select",
+            "required": true,
+            "options": [
+              { "value": "draft", "label": "Entwurf" },
+              { "value": "published", "label": "Veröffentlicht" }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "label": "App Versionen",
+      "modelName": "AppVersion",
+      "endpoint": "app-versions",
+      "listView": {
+        "fields": [
+          {
+            "label": "Versionscode",
+            "name": "versionCode"
+          },
+          {
+            "label": "Breaking Changes",
+            "name": "breakingChanges"
+          },
+          {
+            "label": "Erstellt",
+            "name": "createdAt",
+            "type": "date"
+          },
+          {
+            "label": "Aktualisiert",
+            "name": "updatedAt",
+            "type": "date"
+          }
+        ]
+      },
+      "editView": {
+        "titleField": "versionCode",
+        "fields": [
+          {
+            "label": "Versionscode",
+            "name": "versionCode"
+          },
+          {
+            "label": "Breking Changes",
+            "name": "breakingChanges",
+            "type": "select",
+            "required": true,
+            "options": [
+              { "value": true, "label": "Ja" },
+              { "value": false, "label": "Nein" }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "label": "Users",
+      "modelName": "User",
+      "endpoint": "users",
+      "listView": {
+        "fields": [
+          {
+            "label": "Username",
+            "name": "username"
+          },
+          {
+            "label": "E-Mail",
+            "name": "email"
+          },
+          {
+            "label": "Erstellt",
+            "name": "createdAt",
+            "type": "date",
+            "format": "DD.MM.YY hh:mm"
+          }
+        ]
+      },
+      "editView": {
+        "titleField": "email",
+        "fields": []
+      }
+    },
+    {
+      "label": "Admins",
+      "modelName": "Admin",
+      "endpoint": "admins",
+      "listView": {
+        "fields": [
+          {
+            "label": "E-Mail",
+            "name": "email"
+          },
+          {
+            "label": "Rolle",
+            "name": "role"
+          },
+          {
+            "label": "Erstellt",
+            "name": "createdAt",
+            "type": "date",
+            "format": "DD.MM.YY hh:mm"
+          }
+        ]
+      },
+      "editView": {
+        "titleField": "email",
+        "fields": [
+          {
+            "label": "E-Mail",
+            "name": "email",
+            "type": "email",
+            "required": true
+          },
+          {
+            "label": "Rolle",
+            "name": "role",
+            "type": "select",
+            "required": true,
+            "options": [
+              {
+                "label": "Admin",
+                "value": "admin"
+              },
+              {
+                "label": "Superadmin",
+                "value": "superadmin"
+              }
+            ]
+          },
+          {
+            "type": "line"
+          },
+          {
+            "label": "Passwort",
+            "name": "password",
+            "type": "password",
+            "requiredWhenNew": true,
+            "hint": "Nur eingeben, wenn ein neuer Admin angelegt oder das Passwort geändert werden soll!"
+          }
+        ]
+      },
+      "detailView": {
+        "fields": [
+          {
+            "label": "E-Mail",
+            "name": "email",
+            "type": "email",
+            "required": true
+          },
+          {
+            "label": "Rolle",
+            "name": "role",
+            "type": "select",
+            "required": true,
+            "options": [
+              {
+                "label": "Admin",
+                "value": "admin"
+              },
+              {
+                "label": "Superadmin",
+                "value": "superadmin"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "label": "Logs",
+      "modelName": "LogEntry",
+      "endpoint": "log-entries",
+      "listView": {
+        "actions": ["show"],
+        "fields": [
+          {
+            "label": "Erstellt",
+            "name": "createdAt",
+            "type": "date"
+          },
+          {
+            "label": "E-Mail",
+            "name": "adminEmail"
+          },
+          {
+            "label": "Action",
+            "name": "action"
+          },
+          {
+            "label": "Model link",
+            "name": "modelName",
+            "type": "modelLink",
+            "modelField": "modelName",
+            "idField": "instanceId"
+          },
+          {
+            "label": "Instance ID",
+            "name": "instanceId",
+            "type": "modelLink",
+            "modelField": "modelName",
+            "idField": "instanceId"
+          }
+        ]
+      },
+      "detailView": {
+        "fields": [
+          {
+            "label": "Erstellt",
+            "name": "createdAt",
+            "type": "date"
+          },
+          {
+            "label": "E-Mail",
+            "name": "adminEmail"
+          },
+          {
+            "label": "Action",
+            "name": "action"
+          },
+          {
+            "label": "Model link",
+            "name": "modelName",
+            "type": "modelLink",
+            "modelField": "modelName",
+            "idField": "instanceId"
+          },
+          {
+            "label": "Instanz",
+            "name": "instance",
+            "type": "json"
+          }
+        ]
+      }
+    }
+  ]
+}

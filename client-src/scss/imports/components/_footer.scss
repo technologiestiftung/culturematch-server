@@ -1,0 +1,104 @@
+.footer {
+  padding: $space 0;
+  background: $c-background-invert;
+  .cell {
+    @media (min-width: 768px) {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      overflow: hidden;
+    }
+  }
+  .footer-left {
+    margin: $space 0;
+    @media (min-width: 768px) {
+      width: 25%;
+    }
+    ul {
+      @extend %reset-list;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      @media (min-width: 768px) {
+        justify-content: flex-start;
+      }
+    }
+    .menu-item a {
+      @extend %p;
+      @extend %hyperlink;
+      color: $c-text-invert;
+    }
+
+    .menu-item:first-child {
+      margin-right: $space;
+    }
+  }
+
+  .copyright {
+    margin: $space 0;
+    flex: 1;
+    text-align: center;
+    color: $c-text-invert;
+  }
+  .social-media {
+    @extend %reset-list;
+    display: flex;
+    flex: none;
+    justify-content: center;
+    margin: $space 0;
+    @media (min-width: 768px) {
+      justify-content: flex-end;
+      width: 25%;
+    }
+    &__element {
+      margin: 0 10px;
+      &:first-child {
+        margin-left: 0;
+      }
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+    a {
+      color: $c-text-invert;
+      display: block;
+      width: 32px;
+      height: 32px;
+    }
+
+    svg {
+      width: 100%;
+      height: 100%;
+    }
+  }
+}
+
+.footer__appstore-links {
+  text-align: center;
+  margin: 0 auto  $space-l;
+  color: $c-text-invert;
+
+  .appstore-links {
+    display: flex;
+    justify-content: center;
+    a {
+      width: 200px;
+      height: 60px;
+      display: block;
+      margin: 10px;
+    }
+    img {
+      @extend %object-fit;
+      object-fit: contain;
+    }
+  }
+
+  h2 {
+    margin: 30px 0 20px;
+  }
+
+  p {
+    font-size: 15px;
+    margin: 0 0 30px;
+  }
+}

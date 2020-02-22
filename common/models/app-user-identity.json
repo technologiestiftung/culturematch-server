@@ -1,0 +1,49 @@
+{
+  "name": "AppUserIdentity",
+  "base": "BaseModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "provider": {
+      "type": "string",
+      "comments": "facebook, google, twitter, linkedin"
+    },
+    "authScheme": {
+      "type": "string",
+      "comments": "oAuth, oAuth 2.0, OpenID, OpenID Connect"
+    },
+    "externalId": {
+      "type": "string",
+      "comments": "The provider specific id"
+    },
+    "profile": {
+      "type": "object"
+    },
+    "credentials": {
+      "type": "object"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "user": {
+      "type": "belongsTo",
+      "model": "AppUser",
+      "foreignKey": "userId"
+    }
+  },
+  "acls": [
+    {
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "DENY"
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "$owner",
+      "permission": "ALLOW"
+    }
+  ],
+  "methods": {}
+}

@@ -1,0 +1,32 @@
+.thumb {
+  width: 50px;
+
+  &[item-left], &[item-start] {
+    margin-right: $space;
+    .avatar-only & {
+      margin-right: 0;
+    }
+  }
+  @include aspect-ratio(1, 1);
+  min-height: 0;
+  &__inner {
+    ion-avatar & {
+      border-radius: 50%;
+    }
+    @extend %stretched-container;
+    @extend %cover-background;
+    background-color: $c-background-primary;
+  }
+  .thumb__inner img {
+    @extend %object-fit;
+    position: relative;
+    z-index: 1;
+  }
+}
+
+ion-thumbnail {
+  background: $c-background-primary;
+  img {
+    @extend %object-fit;
+  }
+}

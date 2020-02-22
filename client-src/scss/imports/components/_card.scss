@@ -1,0 +1,19 @@
+.card {
+  position: relative;
+  overflow: visible;
+
+  .card-title {
+    padding: 0;
+    margin: 0 0 $space;
+  }
+
+  .card-content {
+    padding-bottom: 0;
+    ion-card-title {
+      margin: 0;
+      + p {
+        margin-top: $space;
+      }
+    }
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "name": "LogEntry",
+  "plural": "log-entries",
+  "base": "BaseModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "adminId": {
+      "type": "string"
+    },
+    "adminEmail": {
+      "type": "string"
+    },
+    "action": {
+      "type": "string"
+    },
+    "modelName": {
+      "type": "string"
+    },
+    "instanceId": {
+      "type": "string"
+    },
+    "instance": {
+      "type": "string"
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}

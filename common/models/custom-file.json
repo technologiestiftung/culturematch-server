@@ -1,0 +1,47 @@
+{
+  "name": "CustomFile",
+  "plural": "files",
+  "base": "BaseModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "mixins": {
+    "CascadeDelete": {
+      "deepDelete": true
+    }
+  },
+  "properties": {
+    "type": {
+      "type": "string"
+    },
+    "mimeType": {
+      "type": "string"
+    },
+    "extension": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "size": {
+      "type": "number"
+    },
+    "userId": {
+      "type": "string"
+    },
+    "meta": {
+      "type": "object"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "user": {
+      "type": "belongsTo",
+      "model": "AppUser",
+      "foreignKey": "userId"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

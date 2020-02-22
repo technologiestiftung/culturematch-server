@@ -1,0 +1,43 @@
+
+@mixin cover($ratioX, $ratioY, $background: none, $overlay: null) {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  background-color: $background;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  &::before {
+    content: '';
+    display: block;
+    width: 100%;
+    padding-top: ($ratioY / $ratioX) * 100%;
+  }
+  .cover-img {
+    pointer-events: none; // e.g. if wrapper is a link
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    max-width: none;
+    max-height: none;
+    object-fit: cover;
+  }
+  @if $overlay {
+    &::after {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      content: '';
+      pointer-events: none;
+      background: $overlay;
+    }
+  } @else {
+    &::after {
+      background: none;
+    }
+  }
+}

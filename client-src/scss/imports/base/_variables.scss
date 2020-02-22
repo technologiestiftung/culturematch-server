@@ -1,0 +1,149 @@
+// Ionic Variables and Theming. For more info, please see:
+// http://ionicframework.com/docs/v2/theming/
+
+// Shared Variables
+// --------------------------------------------------
+
+$class-prefix: 'proto';
+
+// Color Uses Cases
+
+// ----- Palette ----- //
+
+// basic grey shades
+
+$c-text-primary: #000;
+$c-text-secondary: #666;
+$c-text-invert: #bfb2a9;
+$c-caption: #8a8a8f;
+$c-border: #dedede;
+
+$c-background-primary: #f5f5f5;
+$c-background-secondary: #fbfbfb;
+$c-background-invert: #343437;
+
+// gradients
+$c-cover-overlay: linear-gradient(to top, rgba(#000, .75) 0%, rgba(#000, .25) 60%);
+
+// -------------------------------------
+//   Spacing
+// -------------------------------------
+
+$space: 16px;
+
+$space-xs: 4px;
+$space-s: 8px;
+$space-m: 24px;
+$space-l: 32px;
+$space-xl: 40px;
+
+
+// -------------------------------------
+//   Dimensions
+// -------------------------------------
+
+$height-header: 60px;
+$height-header-l: 100px;
+$height-cta: 40px;
+
+$width-spinner: 24px;
+$width-spinner-cta: 20px;
+$width-spinner-s: 16px;
+
+
+// -------------------------------------
+//   device queries
+// -------------------------------------
+
+$bp-height-s: 568px; // iphone 5
+$bp-height-m: 600px;
+$bp-height-xl: 812px; // iphone X
+
+
+// -------------------------------------
+//   Typo
+// -------------------------------------
+
+
+$font: (
+  h1: (
+    family: ('Roboto', sans-serif),
+    size: 34px,
+    weight: 700,
+    style: normal,
+    line-height: 1.5,
+  ),
+  h2: (
+    family: ('Roboto', sans-serif),
+    size: 28px,
+    weight: 700,
+    style: normal,
+    line-height: 1.5
+  ),
+  h3: (
+    family: ('Roboto', sans-serif),
+    size: 22px,
+    weight: 700,
+    line-height: 1.5
+  ),
+  h4: (
+    family: ('Roboto', sans-serif),
+    size: 16px,
+    weight: 700,
+    style: normal,
+    line-height: 1.5
+  ),
+  h5: (
+    family: ('Roboto', sans-serif),
+    size: 16px,
+    weight: 400,
+    style: italic,
+    line-height: 1.5
+  ),
+  p: (
+    family: ('Roboto', sans-serif),
+    size: 15px,
+    weight: 400,
+    line-height: 2
+  ),
+  caption: (
+    family: ('Roboto', sans-serif),
+    size: 13px,
+    weight: 400,
+    line-height: 1.5
+  )
+);
+
+
+// Ionic Variables
+// ------------------------------------
+$colors: (
+  primary:    #007aff,
+  secondary:  #5ac8fa,
+  danger:     #ff3b30,
+  favorite:   #ff9500,
+  light:      #fff,
+  medium:     #666,
+  dark:       #000,
+  toolbar:    #007aff,
+  facebook:   #3B5998,
+  twitter:    #55acee,
+  whatsapp:   #25D366
+);
+
+// Typo
+// --------------------------------------------------
+
+$font-family-base: getFontValue(p, family);
+$font-size-base: getFontValue(p, size);
+$font-path: "../fonts";
+$text-color: $c-text-primary;
+$background-color: $c-background-primary;
+
+
+// Spacing
+// --------------------------------------------------
+
+$content-padding: $space;
+
+

@@ -1,0 +1,27 @@
+{
+  "name": "PushToken",
+  "base": "BaseModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "id": {
+      "type": "string",
+      "id": true,
+      "required": true
+    },
+    "userId": {
+      "type": "string",
+      "required": true
+    },
+    "accessTokenHash": {
+      "type": "string",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}

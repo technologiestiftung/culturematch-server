@@ -1,0 +1,84 @@
+variables:
+  PROJECT_NAME: "CultureMatch"
+  DEV_URL: "culturematch-dev.protoberl.in"
+  STAGING_URL: "culturematch-staging.protoberl.in"
+stages:
+  - audit 
+  - lint
+  - env
+  - build
+  - deploy
+audit:
+  stage: audit
+  script:
+  - npm i
+  - node bin/npm-audit.js $CI_JOB_URL $CI_PROJECT_NAME $SLACK_WEBHOOK
+  only:
+  - schedules
+lint:
+  stage: lint
+  script:
+    - echo "Linting project"
+    - npm i
+    - npm run lint
+env:
+  stage: env
+  script:
+    - echo "Comparing env files"
+    - scp root@$DEV_URL:/home/deploy/app/.env .remote-env
+    - node bin/env-checker.js
+    - rm .remote-env
+  only:
+    - master
+    - loopback-culturematch
+build:
+  stage: build
+  script:
+    - echo "Building loopback app $PROJECT_NAME"
+    - echo $DEV_URL
+  only:
+    - master
+    - loopback-culturematch
+deploy_development:
+  stage: deploy
+  script:
+    - echo "Deploy to development server"
+    - echo $DEV_URL
+    - echo $PROJECT_NAME
+    - node bin/deploy-proto-admin.js $DEV_URL
+    - mv client/proto-admin/dist/proto-admin client/admin
+    - rm -rf client/proto-admin
+    - rsync -av --delete --exclude=server/storage/* --exclude=.env --exclude=node_modules --exclude=.git --exclude=client/* ./ deploy@$DEV_URL:/home/deploy/app/
+    - ssh root@$DEV_URL "sh /home/deploy/app/bin/db-backup.sh development $PROJECT_NAME"
+    - ssh deploy@$DEV_URL 'cd /home/deploy/app && NODE_ENV=development npm install'
+    - ssh deploy@$DEV_URL 'cd /home/deploy/app && NODE_ENV=development node bin/autoupdate-all.js'
+    - ssh root@$DEV_URL 'pm2 describe api-service > /dev/null; RUNNING=$?; if [ "${RUNNING}" -ne 0 ]; then cd /home/deploy/app && NODE_ENV=development pm2 start /home/deploy/app/server/server.js --name api-service -i max -f -- --development; pm2 save; else pm2 reload api-service; fi;'
+  environment:
+    name: development
+    url: 'https://$DEV_URL'
+  only:
+    - master
+    - loopback-culturematch
+  tags:
+    - loopback
+deploy_staging:
+  stage: deploy
+  script:
+    - echo "Deploy to staging server"
+    - echo $STAGING_URL
+    - echo $PROJECT_NAME
+    - node bin/deploy-proto-admin.js $STAGING_URL
+    - mv client/proto-admin/dist/proto-admin client/admin
+    - rm -rf client/proto-admin
+    - rsync -av --delete --exclude=server/storage/* --exclude=.env --exclude=node_modules --exclude=.git --exclude=client/* ./ deploy@$STAGING_URL:/home/deploy/app/
+    - ssh root@$STAGING_URL "sh /home/deploy/app/bin/db-backup.sh staging $PROJECT_NAME"
+    - ssh deploy@$STAGING_URL 'cd /home/deploy/app && NODE_ENV=staging npm install'
+    - ssh deploy@$STAGING_URL 'cd /home/deploy/app && NODE_ENV=staging node bin/autoupdate-all.js'
+    - ssh root@$STAGING_URL 'pm2 describe api-service > /dev/null; RUNNING=$?; if [ "${RUNNING}" -ne 0 ]; then cd /home/deploy/app && NODE_ENV=staging pm2 start /home/deploy/app/server/server.js --name api-service -i max -f -- --staging; pm2 save; else pm2 reload api-service; fi;'
+  environment:
+    name: staging
+    url: 'https://$STAGING_URL'
+  only:
+    - tags
+  tags:
+    - loopback

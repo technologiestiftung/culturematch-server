@@ -1,0 +1,15 @@
+
+@mixin line-clamp($fontSize, $lineHeight, $maxLines) {
+  display: block;
+  display: -webkit-box;
+  overflow: hidden;
+  width: 100%; /* iOS fix */
+  max-height: $fontSize * $lineHeight * $maxLines;
+  text-overflow: ellipsis;
+  font-size: $fontSize;
+  line-height: $lineHeight;
+  white-space: initial;
+  -webkit-line-clamp: $maxLines;
+  /* autoprefixer: off */
+  -webkit-box-orient: vertical;
+}

@@ -1,0 +1,46 @@
+{
+  "name": "Ad",
+  "plural": "offers",
+  "base": "BaseModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "eventTagIds": {
+      "type": "string"
+    },
+    "eventId": {
+      "type": "string",
+      "required": true
+    },
+    "userId": {
+      "type": "string",
+      "required": true
+    },
+    "eventTitle": {
+      "type": "string"
+    },
+    "description": {
+      "type": "any",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {
+    "user": {
+      "type": "belongsTo",
+      "model": "AppUser",
+      "foreignKey": "userId"
+    }
+  },
+  "acls": [
+    {
+      "accessType": "WRITE",
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW"
+    }
+  ],
+  "methods": {}
+}

@@ -1,0 +1,71 @@
+{
+  "restApiRoot": "/api",
+  "apple": {
+    "bundleId": "berlin.prototype.blueprint",
+    "teamId": "532JQJ3DNM"
+  },
+  "host": "0.0.0.0",
+  "remoting": {
+    "context": false,
+    "rest": {
+      "handleErrors": false,
+      "normalizeHttpPath": false,
+      "xml": false
+    },
+    "json": {
+      "strict": false,
+      "limit": "100kb"
+    },
+    "urlencoded": {
+      "extended": true,
+      "limit": "100kb"
+    },
+    "cors": false
+  },
+  "viewConfig": {
+    "urls": {
+      "landingPage": "https://www.prototype.berlin",
+      "imprint": "https://google.de",
+      "privacy": "https://google.de",
+      "playstore": "https://play.google.com/store/apps/details?id=berlin.prototype.starter",
+      "appstore": "https://itunes.apple.com/us/app/prototype-berlin/id12345678",
+      "facebook": "https://www.facebook.com/prototype.berlin/",
+      "instagram": "https://www.instagram.com/prototype.berlin/",
+      "youtube": "https://www.youtube.com/"
+    },
+    "share": {
+      "imageWidth": 279,
+      "imageHeight": 279
+    },
+    "email": "office@prototype.berlin",
+    "colors": {
+      "theme": "#343437"
+    },
+    "content": {
+      "header": {},
+      "main": {
+        "status_404": "Seite nicht gefunden",
+        "empty": "Restaurant leider nicht gefunden"
+      },
+      "footer": {
+        "copyright": "prototype.berlin GmbH",
+        "title": "prototype.berlin App"
+      }
+    }
+  },
+  "emailConfig": {
+    "contact": {
+      "email": "office@prototype.berlin"
+    },
+    "body": {},
+    "font": {
+      "family": "'Roboto', sans-serif",
+      "url": "https://fonts.googleapis.com/css?family=Roboto:400,700",
+      "size": "14px",
+      "lineHeight": "17px"
+    },
+    "colors": {
+      "highlight": "#007aff"
+    }
+  }
+}

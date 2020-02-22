@@ -1,0 +1,19 @@
+[app-spinner] {
+  @include size($width-spinner);
+  &[small] {
+    @include size($width-spinner-s);
+  }
+  @each $color, $val in $colors {
+    &[color="#{$color}"] {
+      color: $val;
+    }
+  }
+  &.spinner-ios line, &.spinner-crescent circle {
+    stroke: currentColor;
+  }
+  &.content-spinner {
+    display: block;
+    margin: $space-l auto;
+  }
+}
+

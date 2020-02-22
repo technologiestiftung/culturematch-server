@@ -1,0 +1,25 @@
+
+.hidden {
+  display: none!important;
+}
+
+.section, %section {
+  position: relative;
+  overflow: hidden;
+}
+
+.cell, %cell {
+  position: relative;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: $space;
+  padding-right: $space;
+  max-width: 972px;
+}
+
+.empty-state-text {
+  text-align: center;
+  margin: $space;
+  padding: 0 $space;
+}
