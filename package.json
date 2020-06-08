@@ -37,7 +37,7 @@
     "fcm-node": "1.5.2",
     "file-type": "12.3.0",
     "gm": "1.23.1",
-    "helmet": "3.21.1",
+    "helmet": "3.22.0",
     "image-size": "0.8.3",
     "ioredis": "4.10.0",
     "loopback": "3.26.0",
