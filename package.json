@@ -31,7 +31,7 @@
     "cookie-parser": "1.4.4",
     "cors": "2.8.5",
     "debug": "4.1.1",
-    "dotenv": "8.0.0",
+    "dotenv": "8.2.0",
     "express-basic-auth": "1.2.0",
     "express-session": "1.16.2",
     "fcm-node": "1.5.2",
