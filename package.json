@@ -23,7 +23,7 @@
     }
   },
   "dependencies": {
-    "aws-sdk": "2.544.0",
+    "aws-sdk": "2.692.0",
     "bull": "3.10.0",
     "compression": "1.7.4",
     "connect-redis": "4.0.3",
